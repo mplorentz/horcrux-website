@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Request deletion of your Horcrux account, including your Nostr key pair and associated data">
+        content="Delete your Horcrux account and remove your data from our servers">
     <title>Delete Account — Horcrux Backup</title>
 
     <!-- Google Fonts -->
@@ -29,125 +29,49 @@
         <p class="subtitle">Permanently remove your data from Horcrux</p>
 
         <div class="description">
-            <p>Horcrux stores a Nostr key pair on your device. This key pair is your identity — it's how you
-                authenticate with stewards and how your vaults are associated with you. Deleting your account removes
-                your public key from our records and severs your association with any vaults you own or steward.</p>
+            <p>You can delete your Horcrux account directly in the app. This will sign a
+                <a href="https://github.com/nostr-protocol/nips/blob/master/62.md">NIP-62 Request to Vanish</a> with
+                your Nostr key, requesting relays and our servers to delete all data associated with your public key.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>How to delete your account</h2>
+            <p class="text">Open the Horcrux app and navigate to:</p>
+            <p class="text" style="padding-left: 1.5rem; font-weight: 600;">Settings → Account → Delete Account</p>
+            <p class="text">The app will prompt you to confirm, then sign and broadcast the deletion request using
+                your Nostr key. No email or web form is needed — your cryptographic signature is all the
+                authentication required.</p>
         </div>
 
         <hr class="divider">
 
         <div class="section">
             <h2>What happens when you delete your account</h2>
-            <p class="text"><strong>Your Nostr key pair is removed</strong> — The public key associated with your account
-                will be deleted from our systems. Your private key is already stored only on your device and can be
-                removed by uninstalling the app.</p>
-            <p class="text"><strong>Your vaults remain on stewards' devices</strong> — Encrypted shards held by your
-                stewards are stored on their devices, not on our servers. Those shards are still encrypted and
-                unreadable without a formal recovery process.</p>
-            <p class="text"><strong>Steward associations are removed</strong> — Vaults you were stewarding for others
-                will no longer have you listed as a steward. Those vault owners should be notified to find a replacement
-                steward.</p>
-            <p class="text"><strong>Recovery requests are cancelled</strong> — Any active recovery requests associated
-                with your account will be invalidated.</p>
-        </div>
-
-        <hr class="divider">
-
-        <div class="section">
-            <h2>What we need from you</h2>
-            <p class="text">To process your deletion request, please fill out the form below. We need your email address
-                so we can confirm the request belongs to you. If you know your Nostr public key (<code>npub...</code>),
-                including it will help us locate your account faster.</p>
-            <p class="text">We'll process your request within 30 days and send a confirmation email once it's complete.</p>
-        </div>
-
-        <hr class="divider">
-
-        <div class="section">
-            <h2>Request Deletion</h2>
-            <p class="text">Fill out the form below to submit your account deletion request.</p>
-
-            <form id="deletionForm" action="https://formspree.io/f/mwvzqbe" method="POST" style="margin-top: 1.5rem;">
-                <!-- Formspree redirect after success -->
-                <input type="hidden" name="_next" value="https://horcruxbackup.com/delete-account/?success=true">
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label for="email" style="display:block;margin-bottom:0.5rem;font-weight:600;">
-                        Email address <span style="color:var(--error);">*</span>
-                    </label>
-                    <input type="email" id="email" name="email" required
-                        style="width:100%;padding:0.75rem;border:1px solid var(--divider);border-radius:8px;background:var(--surface);color:var(--text-primary);font-family:'Fira Sans',sans-serif;font-size:1rem;"
-                        placeholder="you@example.com">
-                </div>
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label for="npub" style="display:block;margin-bottom:0.5rem;font-weight:600;">
-                        Nostr public key (optional)
-                    </label>
-                    <input type="text" id="npub" name="npub"
-                        style="width:100%;padding:0.75rem;border:1px solid var(--divider);border-radius:8px;background:var(--surface);color:var(--text-primary);font-family:'Fira Sans',sans-serif;font-size:1rem;"
-                        placeholder="npub1... or hex public key">
-                    <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:0.25rem;">
-                        Helps us locate your account faster. Find it in Horcrux under Settings.
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 1.5rem;">
-                    <label for="message" style="display:block;margin-bottom:0.5rem;font-weight:600;">
-                        Additional information (optional)
-                    </label>
-                    <textarea id="message" name="message" rows="4"
-                        style="width:100%;padding:0.75rem;border:1px solid var(--divider);border-radius:8px;background:var(--surface);color:var(--text-primary);font-family:'Fira Sans',sans-serif;font-size:1rem;resize:vertical;"
-                        placeholder="Any additional context or vault names you'd like to include..."></textarea>
-                </div>
-
-                <button type="submit" class="button"
-                    style="width:100%;font-size:1rem;">
-                    Submit Deletion Request
-                </button>
-
-                <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:1rem;text-align:center;">
-                    Your information will be used only to process this deletion request.
-                </p>
-            </form>
-
-            <div id="successMessage" style="display:none;margin-top:2rem;text-align:center;">
-                <div class="logo" role="img" aria-label="Checkmark">✅</div>
-                <h2>Request Submitted</h2>
-                <p class="text">Your account deletion request has been received. We'll send a confirmation
-                    email once it's been processed within 30 days.</p>
-                <a href="../" class="button">Back to Home</a>
-            </div>
+            <p class="text"><strong>Your Nostr public key is deleted from our servers</strong> — We will
+                remove all data we hold associated with your public key.</p>
+            <p class="text"><strong>Your private key stays on your device</strong> — Your Nostr private key is
+                stored only in the app's secure storage and is never sent to us. You can remove it by uninstalling
+                the app.</p>
+            <p class="text"><strong>Encrypted shards on stewards' devices are unaffected</strong> — The
+                encrypted shards held by your stewards are stored on their devices, not on our servers. They remain
+                encrypted and unreadable without a recovery process.</p>
         </div>
 
         <hr class="divider">
 
         <div class="section">
             <h2>Before you go</h2>
-            <p class="text">Before requesting deletion, consider exporting any data you may need. Vault contents and
-                recovery information stored only in the Horcrux app should be backed up separately.</p>
-            <p class="text">If you're unsure whether deletion is what you need, <a href="https://github.com/mplorentz/horcrux">reach out on GitHub</a> and we'll help.</p>
+            <p class="text">Make sure you've exported anything you need before deleting. Vault contents and recovery
+                information stored only in the Horcrux app cannot be recovered after deletion.</p>
+            <p class="text">If you have questions or run into issues, <a href="https://github.com/mplorentz/horcrux">reach out on GitHub</a>.</p>
         </div>
 
         <p class="text-secondary text-center">
             <a href="https://github.com/mplorentz/horcrux">Horcrux on GitHub</a>
         </p>
     </div>
-
-    <script>
-        // Show success message if redirected from Formspree
-        (function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('success') === 'true') {
-                const form = document.getElementById('deletionForm');
-                const success = document.getElementById('successMessage');
-                if (form && success) {
-                    form.style.display = 'none';
-                    success.style.display = 'block';
-                }
-            }
-        })();
-    </script>
 </body>
 
 </html>
