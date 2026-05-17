@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Delete your Horcrux account and remove your data from our servers">
+    <title>Delete Account — Horcrux Backup</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Fira+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="container page-content">
+        <p class="subtitle" style="margin-bottom: 0.5rem;">
+            <a href="../" style="text-decoration:none;color:var(--text-secondary);">← Back</a>
+        </p>
+
+        <h1>Delete Your Account</h1>
+        <p class="subtitle">Permanently remove your data from Horcrux</p>
+
+        <div class="description">
+            <p>You can delete your Horcrux account directly in the app. This will sign a
+                <a href="https://github.com/nostr-protocol/nips/blob/master/62.md">NIP-62 Request to Vanish</a> with
+                your Nostr key, requesting relays and our servers to delete all data associated with your public key.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>How to delete your account</h2>
+            <p class="text">Open the Horcrux app and navigate to:</p>
+            <p class="text" style="padding-left: 1.5rem; font-weight: 600;">Settings → Account → Delete Account</p>
+            <p class="text">The app will prompt you to confirm, then sign and broadcast the deletion request using
+                your Nostr key. No email or web form is needed — your cryptographic signature is all the
+                authentication required.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>What happens when you delete your account</h2>
+            <p class="text"><strong>Your Nostr public key is deleted from our servers</strong> — We will
+                remove all data we hold associated with your public key.</p>
+            <p class="text"><strong>Your private key stays on your device</strong> — Your Nostr private key is
+                stored only in the app's secure storage and is never sent to us. You can remove it by uninstalling
+                the app.</p>
+            <p class="text"><strong>Encrypted shards on stewards' devices are unaffected</strong> — The
+                encrypted shards held by your stewards are stored on their devices, not on our servers. They remain
+                encrypted and unreadable without a recovery process.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>Before you go</h2>
+            <p class="text">Make sure you've exported anything you need before deleting. Vault contents and recovery
+                information stored only in the Horcrux app cannot be recovered after deletion.</p>
+            <p class="text">If you have questions or run into issues, <a href="https://github.com/mplorentz/horcrux">reach out on GitHub</a>.</p>
+        </div>
+
+        <p class="text-secondary text-center">
+            <a href="https://github.com/mplorentz/horcrux">Horcrux on GitHub</a>
+        </p>
+    </div>
+</body>
+
+</html>
