@@ -43,10 +43,20 @@ body {
     padding: 2rem;
 }
 
+body:has(.page-content) {
+    align-items: flex-start;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
 .container {
     max-width: 500px;
     width: 100%;
     text-align: center;
+}
+
+.page-content {
+    text-align: left;
 }
 
 .logo {
@@ -176,4 +186,14 @@ a:visited {
 
 .section:last-child {
     margin-bottom: 0;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--divider);
+    margin: 2rem 0;
+}
+
+.text-center {
+    text-align: center;
 }

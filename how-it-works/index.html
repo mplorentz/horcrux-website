@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="How Horcrux keeps your data safe with distributed, encrypted backup using Shamir's Secret Sharing and the Nostr protocol">
+    <title>How It Works — Horcrux Backup</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Fira+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="container page-content">
+        <p class="subtitle" style="margin-bottom: 0.5rem;"><a href="../" style="text-decoration:none;color:var(--text-secondary);">← Back</a></p>
+
+        <h1>How Horcrux Keeps Your Data Safe</h1>
+        <p class="subtitle">No cloud. No single point of failure.</p>
+
+        <div class="description">
+            <p>Horcrux backs up your sensitive data — passwords, cryptographic keys, digital wills — by distributing
+                encrypted keys to people you trust. No single person holds enough information to access your data, but
+                together they can help you recover it.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>How it works</h2>
+            <p class="text">A vault requires multiple keys to open — and <strong>you decide how many</strong>. Horcrux helps you create
+                those keys and give one to each person you trust (your <strong>stewards</strong>).</p>
+
+            <p class="text">1. <strong>Your data is encrypted and locked in a vault</strong></p>
+            <p class="text">2. <strong>Horcrux generates a set of keys to the vault</strong> — more keys than are needed to open it</p>
+            <p class="text">3. <strong>Each steward receives one key</strong>, sent securely to their device</p>
+            <p class="text">4. <strong>To open the vault, a minimum number of stewards must provide their keys</strong> — this minimum is called the <strong>threshold</strong></p>
+
+            <p class="text">For example: with 5 stewards and a threshold of 3, you need any 3 of the 5 keys to open the vault.
+                Even if 2 stewards lose their devices or are unreachable, your data is still recoverable. And no single
+                key can open the vault on its own.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>What your stewards can and can't see</h2>
+            <p class="text"><strong>Stewards cannot see your vault contents.</strong> Ever. Each steward holds only one encrypted key
+                — a fragment that reveals nothing on its own. Your actual data stays encrypted until enough keys are
+                combined during a formal recovery process.</p>
+
+            <p class="text"><strong>Stewards will see:</strong></p>
+            <p class="text" style="padding-left: 1.5rem;">• The name of the vault they're stewarding</p>
+            <p class="text" style="padding-left: 1.5rem;">• The name of the vault owner</p>
+            <p class="text" style="padding-left: 1.5rem;">• Recovery requests when you need to restore your data</p>
+
+            <p class="text"><strong>Stewards will never see:</strong></p>
+            <p class="text" style="padding-left: 1.5rem;">• The contents of your vault</p>
+            <p class="text" style="padding-left: 1.5rem;">• Other stewards' keys</p>
+            <p class="text" style="padding-left: 1.5rem;">• Any data until you explicitly request recovery and enough stewards consent</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>Recovery</h2>
+            <p class="text">If you lose access to your data, any steward can start a recovery. Here's what happens:</p>
+
+            <p class="text">1. <strong>A recovery request is sent to all stewards</strong></p>
+            <p class="text">2. <strong>Each steward opens Horcrux and approves the request</strong></p>
+            <p class="text">3. <strong>Their key is sent back securely</strong></p>
+            <p class="text">4. <strong>Once enough keys are collected (the threshold), your vault is reassembled</strong></p>
+            <p class="text">5. <strong>Your data is restored</strong></p>
+
+            <p class="text">Every key is transmitted end-to-end encrypted — no server or relay can read it in transit.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>Security</h2>
+
+            <p class="text"><strong>End-to-end encryption</strong> — All communication between you and your stewards uses NIP-44
+                gift wraps on the Nostr protocol. Not even the relay servers can read your messages.</p>
+            <p class="text"><strong>No cloud storage</strong> — Your data is never stored on a server. It lives on the
+                devices of people you trust.</p>
+            <p class="text"><strong>Encrypted at rest</strong> — Vault contents and cryptographic keys are always encrypted on
+                your device.</p>
+            <p class="text"><strong>Threshold security</strong> — No single steward (or their device) can unlock your vault
+                alone.</p>
+            <p class="text"><strong>Open source</strong> — Horcrux is fully open source. You can inspect the code on
+                <a href="https://github.com/mplorentz/horcrux">GitHub</a>.</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="section">
+            <h2>Alpha software</h2>
+            <p class="text">Horcrux is currently in alpha. Do not use it to back up real secrets at this time. We're
+                still testing and improving the security model.</p>
+        </div>
+
+        <p class="text-secondary text-center">
+            <a href="https://github.com/mplorentz/horcrux">Horcrux on GitHub</a>
+        </p>
+    </div>
+</body>
+
+</html>
