@@ -7,7 +7,7 @@
       name="description"
       content="How Horcrux keeps your data safe with distributed, encrypted backup using Shamir's Secret Sharing and the Nostr protocol"
     />
-    <title>Horcrux Vaults in Detail — Horcrux Backup</title>
+    <title>How Horcrux Works — Horcrux Backup</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,8 +23,7 @@
 
   <body>
     <div class="container page-content">
-      <h1>Horcrux Vaults in Detail</h1>
-      <p class="subtitle">No cloud. No single point of failure.</p>
+      <h1>How Horcrux Works</h1>
 
       <div class="description">
         <p>
@@ -38,7 +37,6 @@
       <hr class="divider" />
 
       <div class="section">
-        <h2>How it works</h2>
         <p class="text">
           Horcrux vaults require multiple keys to open — and
           <strong>you decide how many</strong>. Horcrux helps you create those
@@ -90,7 +88,78 @@
           <a href="https://github.com/mplorentz/horcrux">open source</a> and
           free to use and modify as you wish.
         </p>
+
+        <p class="text">
+          If you have further questions or feedback, send us a message below.
+        </p>
+
+        <div
+          class="contact-message contact-message--success"
+          data-fs-success
+          hidden
+        ></div>
+        <div
+          class="contact-message contact-message--error"
+          data-fs-error
+          hidden
+        ></div>
+
+        <form
+          id="contact-form"
+          class="contact-form"
+          action="https://formspree.io/f/mgoqebnn"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Horcrux website feedback" />
+          <input
+            type="text"
+            name="_gotcha"
+            class="contact-honeypot"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+
+          <label class="contact-field">
+            <span class="contact-label">Email</span>
+            <input
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              data-fs-field
+            />
+            <span class="contact-field-error" data-fs-error="email"></span>
+          </label>
+
+          <label class="contact-field">
+            <span class="contact-label">Message</span>
+            <textarea
+              name="message"
+              rows="4"
+              required
+              data-fs-field
+            ></textarea>
+            <span class="contact-field-error" data-fs-error="message"></span>
+          </label>
+
+          <button type="submit" class="button contact-submit" data-fs-submit-btn>
+            Send
+          </button>
+        </form>
       </div>
     </div>
+    <script>
+      window.formspree =
+        window.formspree ||
+        function () {
+          (formspree.q = formspree.q || []).push(arguments);
+        };
+      formspree("initForm", {
+        formElement: "#contact-form",
+        formId: "mgoqebnn",
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </body>
 </html>
