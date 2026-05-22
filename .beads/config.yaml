@@ -6,7 +6,19 @@
 # Issue prefix for this repository (used by bd init)
 # If not set, bd init will auto-detect from directory name
 # Example: issue-prefix: "myproject" creates issues like "myproject-1", "myproject-2", etc.
-# issue-prefix: ""
+issue-prefix: "horcrux_web"
+issue_prefix: horcrux_web
+
+# Gas City only reads top-level `dolt.host` / `dolt.port` (nested `dolt:` is ignored).
+# `explicit` = this rig pins shared dolt.lorentz.is; `inherited_city` expects a city_canonical mirror.
+dolt.auto-start: false
+dolt.host: dolt.lorentz.is
+dolt.port: "3307"
+dolt.mode: server
+dolt.user: hudson
+
+gc.endpoint_origin: explicit
+gc.endpoint_status: verified
 
 # Use no-db mode: JSONL-only, no Dolt database
 # When true, bd will use .beads/issues.jsonl as the source of truth
