@@ -2,8 +2,8 @@
     --bg: #f4f4f4;
     --text-primary: #0e0c0d;
     --text-secondary: #808080;
-    --button-bg: #808080;
-    --button-text: #f4f4f4;
+    --button-bg: #4f4f4f;
+    --button-text: #ffffff;
     --divider: #E0E0E0;
     --surface: #FAFAFA;
     --error: #BA1A1A;
@@ -194,6 +194,16 @@ a:visited {
     transition: transform 0.2s ease, opacity 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 1rem;
+}
+
+.button:visited,
+.button:hover {
+    color: var(--button-text);
+}
+
+.button.button--secondary:visited,
+.button.button--secondary:hover {
+    color: var(--text-primary);
 }
 
 .button:hover {
