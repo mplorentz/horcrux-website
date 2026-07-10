@@ -37,7 +37,65 @@
             <a class="button" href="https://play.google.com/apps/testing/com.singleoriginsoftware.horcrux" rel="noopener">Join the Beta — Google Play</a>
             <a class="button button--secondary" href="https://github.com/mplorentz/horcrux/releases" rel="noopener">Download APK — Android</a>
         </div>
+
+        <hr class="divider">
+
+        <section class="signup-section" aria-labelledby="signup-heading">
+            <h2 id="signup-heading" class="signup-heading">Get notified</h2>
+            <p class="signup-description">Sign up for our mailing list to get notified when Horcrux launches publicly.</p>
+
+            <div class="contact-message contact-message--success" data-fs-success hidden></div>
+            <div class="contact-message contact-message--error" data-fs-error hidden></div>
+
+            <form
+                id="signup-form"
+                class="signup-form contact-form"
+                action="https://formspree.io/f/xaqgreve"
+                method="POST"
+            >
+                <input type="hidden" name="_subject" value="Horcrux email list signup" />
+                <input
+                    type="text"
+                    name="_gotcha"
+                    class="contact-honeypot"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                />
+
+                <div class="signup-fields">
+                    <label class="contact-field signup-field">
+                        <span class="visually-hidden">Email</span>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            autocomplete="email"
+                            placeholder="you@example.com"
+                            data-fs-field
+                        />
+                        <span class="contact-field-error" data-fs-error="email"></span>
+                    </label>
+
+                    <button type="submit" class="button signup-submit" data-fs-submit-btn>
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+        </section>
     </div>
+    <script>
+        window.formspree =
+            window.formspree ||
+            function () {
+                (formspree.q = formspree.q || []).push(arguments);
+            };
+        formspree("initForm", {
+            formElement: "#signup-form",
+            formId: "xaqgreve",
+        });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 
 </html>
