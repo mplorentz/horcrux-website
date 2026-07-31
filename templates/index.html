@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{# ── Hero ─────────────────────────────────────────────────────── #}
+<section class="hero">
+  <h1>Backup your secrets to people you trust.</h1>
+  <p>
+    The social layer of your security stack. Split your most sensitive
+    credentials into encrypted keys, held by people you trust — not servers,
+    not corporations. Recovery needs a threshold of your stewards to
+    cooperate, so no single person holds everything and no single failure
+    destroys your backup.
+  </p>
+  <div class="hero-cta">
+    <a href="https://testflight.apple.com/join/horcrux" class="btn btn-outline" target="_blank">Get the app</a>
+    <a href="/how-it-works/" class="text-link">or see how it works &rarr;</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+{# ── Problem ──────────────────────────────────────────────────── #}
+<section class="section">
+  <h2 class="section-header">Every security stack has a gap.</h2>
+  <p style="color: var(--secondary); max-width: 560px; line-height: 1.7;">
+    Your credentials are too sensitive for a password manager, too fragile
+    for paper. A hardware wallet doesn't help with your 2FA backup codes
+    or your root passwords. So where does it go?
+  </p>
+</section>
+
+<hr class="divider">
+
+{# ── Scenario cards ───────────────────────────────────────────── #}
+<section class="section">
+  <h2 class="section-header">What it's for</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Your protocol identity</h3>
+      <p>
+        Nostr keys, Bluesky keys. Lose the key, lose the identity. No
+        recovery form, no customer support — just your stewards.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Your homelab</h3>
+      <p>
+        Server recovery keys, 2FA backup codes, root passwords. The
+        thing only you have, that unlocks everything else.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Your digital will</h3>
+      <p>
+        Estate planning, framed as the same engineer at a different
+        moment. Credentials your family would need if you're gone.
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+{# ── How it works ─────────────────────────────────────────────── #}
+<section class="section">
+  <h2 class="section-header">How it works</h2>
+  <div class="steps">
+    <div class="step">
+      <span class="step-number">01</span>
+      <div class="step-content">
+        <h3>Split</h3>
+        <p>Your secret is split into encrypted keys. No single key reveals anything.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-number">02</span>
+      <div class="step-content">
+        <h3>Distribute</h3>
+        <p>Each key goes to a steward you choose, peer-to-peer. No server sees it.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-number">03</span>
+      <div class="step-content">
+        <h3>Recover</h3>
+        <p>A threshold of your stewards approve, and the vault reassembles on your device.</p>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top: 24px;">
+    <a href="/how-it-works/">Read the full walkthrough &rarr;</a>
+  </p>
+</section>
+
+<hr class="divider">
+
+{# ── What it is / isn't ──────────────────────────────────────── #}
+<section class="section">
+  <h2 class="section-header">What it is, what it isn't</h2>
+  <div class="two-col">
+    <div>
+      <h3>It is</h3>
+      <ul>
+        <li>The social layer of your security stack.</li>
+        <li>For credentials you're comfortable putting on a phone.</li>
+        <li>Open source, MIT, funded by OpenSats.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>It isn't</h3>
+      <ul>
+        <li>A password manager — it's for what's behind it.</li>
+        <li>A hardware wallet — backup, not signing.</li>
+        <li>A cloud service — no servers own your data.</li>
+        <li>A replacement for serious crypto custody — yet.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+{# ── Open source / author beat ───────────────────────────────── #}
+<section class="author-beat">
+  <p>
+    Horcrux is MIT-licensed and funded by OpenSats. It's built by
+    Matt Lorentz, for people who share his values — self-custody, open
+    protocols, software that survives the vendor.
+  </p>
+  <div class="links">
+    <a href="https://github.com/mplorentz/horcrux">Read the code &rarr;</a>
+    <a href="/about/">Why I built this &rarr;</a>
+  </div>
+</section>
+
+{% endblock content %}

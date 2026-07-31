@@ -1,0 +1,7 @@
+base_url = "https://horcruxbackup.com"
+title = "Horcrux"
+description = "Backup your secrets to people you trust."
+build_search_index = false
+
+[extra]
+author = "Matt Lorentz"

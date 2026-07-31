@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Horcrux{% endblock title %}</title>
+  <meta name="description" content="{% block description %}Backup your secrets to people you trust.{% endblock description %}">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  {% include "partials/nav.html" %}
+
+  <main class="page-container">
+    {% block content %}{% endblock content %}
+  </main>
+
+  {% include "partials/footer.html" %}
+</body>
+</html>
