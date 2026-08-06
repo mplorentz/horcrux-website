@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}Horcrux{% endblock title %}
+{% block description %}Back up your secrets to people you trust.{% endblock description %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="wordmark-lockup">
+    <img src="/assets/app-icon.png" alt="Horcrux" class="wordmark-icon">
+    <span class="wordmark-text">Horcrux</span>
+  </div>
+  <h1 class="hero-title">Store your secrets with people you trust.</h1>
+  <p class="hero-subhead">Horcrux backs up sensitive data like keys, passwords, and inheritance plans to the devices of people you know. Recovery requires their consent. It's more secure than the cloud, more resilient than paper.</p>
+  <div class="hero-cta">
+    <a href="https://testflight.apple.com/join/DG5kJpvu" target="_blank" rel="noopener" class="btn btn-primary">Join the beta — iOS</a>
+    <a href="https://play.google.com/apps/testing/com.singleoriginsoftware.horcrux" target="_blank" rel="noopener" class="btn btn-outline">Join the beta — Android</a>
+  </div>
+  <div class="install-chips">
+    <span class="install-chips-label">Also via</span>
+    <a href="https://github.com/mplorentz/horcrux/releases" target="_blank" rel="noopener" class="chip">APK on GitHub</a>
+    <span class="chip chip-disabled">Zapstore — coming soon</span>
+    <span class="chip chip-disabled">F-Droid — coming soon</span>
+  </div>
+  <div class="hero-anchor">
+    <a href="#how-it-works">or see how it works ↓</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section section--intro">
+  <h2 class="section-header">The missing social layer in your security stack</h2>
+  <p class="section-lead">Relying on other people is one of the most human things we can do, but too often our digital systems sideline the social. Horcrux marries advanced cryptography with real human relationships to protect against a wide variety of failure modes that encryption and traditional backup software never can.</p>
+</section>
+
+<hr class="divider">
+
+<section id="use-cases" class="section">
+  <h2 class="section-header">What it's for</h2>
+  <div class="numbered-list">
+    <div class="numbered-item">
+      <span class="numbered-index">01</span>
+      <div class="numbered-body">
+        <h3>Your digital identity</h3>
+        <p>Your Bluesky account, 2FA backup codes, a company&nbsp;encryption key — lose these and there's no recovery form to fill out. Back it up to a vault held by stewards you choose, so losing a device doesn't mean losing the identity.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <span class="numbered-index">02</span>
+      <div class="numbered-body">
+        <h3>Your homelab</h3>
+        <p>Backup encryption keys, root passwords, hard drive encryption codes — the credentials that only you have, that unlock everything else. Store them with people you trust instead of one drive, one note, one point of failure.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <span class="numbered-index">03</span>
+      <div class="numbered-body">
+        <h3>Your digital will</h3>
+        <p>Your safe's combination, password manager access, instructions your family would need if you're gone. Set a threshold your stewards can meet together — but no one of them can act alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="how-it-works" class="section">
+  <h2 class="section-header">How it works</h2>
+
+  {% set class = "diagram--home" %}
+  {% include "partials/key-diagram.html" %}
+
+  <div class="numbered-list">
+    <div class="numbered-item">
+      <span class="numbered-index">01</span>
+      <div class="numbered-body">
+        <h3>Setup</h3>
+        <p>Your secret is locked in an encrypted vault that requires multiple keys to open. Invite other people to download Horcrux and become a steward of your vault.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <span class="numbered-index">02</span>
+      <div class="numbered-body">
+        <h3>Distribute</h3>
+        <p>Each steward receives a key to the vault for safekeeping until recovery time.</p>
+      </div>
+    </div>
+    <div class="numbered-item">
+      <span class="numbered-index">03</span>
+      <div class="numbered-body">
+        <h3>Recover</h3>
+        <p>When you or a steward initiate recovery everyone receives a key request on their device. If enough stewards agree to share their keys with the initiator the vault can be opened.</p>
+      </div>
+    </div>
+  </div>
+  <p class="section-link"><a href="/how-it-works/">Read the full walkthrough →</a></p>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <h2 class="section-header">Why Horcrux</h2>
+  <div class="why-list">
+    <div class="why-item">
+      <h3>Open source</h3>
+      <p>An app that handles your most sensitive secrets shouldn't ask you to trust it blindly. Horcrux is part of the internet commons, MIT-licensed, and fully auditable.</p>
+      <a href="https://github.com/mplorentz/horcrux" target="_blank" rel="noopener" class="why-link">Read the code →</a>
+    </div>
+    <div class="why-item">
+      <h3>You are the customer</h3>
+      <p>Horcrux is generously funded by a grant from <a href="https://opensats.org" target="_blank" rel="noopener">OpenSats</a>, not venture capital. There's no growth target, no ad model, and no acquisition to sell you out to. Our incentive is building something that actually protects you.</p>
+    </div>
+    <div class="why-item">
+      <h3>Built on durable, standards-based tech</h3>
+      <p>Horcrux is designed to outlive its creators and users. For this we use simple and widely adopted technology - websockets, JSON, secp256k1, Chacha20. Horcrux runs on the open <a href="https://nostr.com" target="_blank" rel="noopener">Nostr protocol</a> and uses simple relay servers that are open source and self-hostable. The underlying tech is stable and boring on purpose, so Horcrux keeps working long after any one company would have shut it down.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="section closing-statement">
+  <p>Trust people. Not platforms.</p>
+</section>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="/js/key-diagram.js" defer></script>
+{% endblock scripts %}

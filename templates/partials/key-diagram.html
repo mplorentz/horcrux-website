@@ -1,0 +1,25 @@
+<div class="diagram{% if class %} {{ class }}{% endif %}" data-key-diagram data-stewards="5" data-threshold="3">
+  <div class="diagram-visual" data-diagram-visual>
+    <div class="diagram-vault">
+      <img src="/assets/vault.svg" alt="" class="diagram-vault-icon">
+    </div>
+  </div>
+  <p class="diagram-status" data-diagram-status></p>
+
+  <div class="diagram-controls">
+    <div class="diagram-slider-row">
+      <span class="diagram-slider-label">Stewards</span>
+      <input type="range" min="1" max="8" value="5" class="diagram-slider" data-steward-slider aria-label="Number of stewards">
+      <span class="diagram-slider-value" data-steward-value>5</span>
+    </div>
+    <div class="diagram-slider-row">
+      <span class="diagram-slider-label">Threshold</span>
+      <input type="range" min="1" max="8" value="3" class="diagram-slider" data-threshold-slider aria-label="Recovery threshold">
+      <span class="diagram-slider-value" data-threshold-value>3</span>
+    </div>
+  </div>
+
+  <div class="diagram-simulate">
+    <button type="button" class="btn btn-outline" data-simulate-btn>Simulate recovery</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<footer class="footer">
+  <ul class="footer-links">
+    {% if current_path != "/" %}<li><a href="/">Home</a></li>{% endif %}
+    {% if current_path != "/how-it-works/" %}<li><a href="/how-it-works/">How it works</a></li>{% endif %}
+    {% if current_path != "/about/" %}<li><a href="/about/">About</a></li>{% endif %}
+    <li><a href="https://github.com/mplorentz/horcrux" target="_blank" rel="noopener">GitHub</a></li>
+    {% if current_path == "/" or current_path == "/how-it-works/" %}<li><a href="/delete-account/">Delete account</a></li>{% endif %}
+    {% if current_path != "/tos/" %}<li><a href="/tos/">Terms</a></li>{% endif %}
+    {% if current_path != "/privacy-policy/" %}<li><a href="/privacy-policy/">Privacy</a></li>{% endif %}
+    <li><a href="/how-it-works/#contact-form">Contact</a></li>
+  </ul>
+</footer>

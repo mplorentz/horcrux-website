@@ -1,0 +1,976 @@
+:root {
+  /* Colors — dark theme only, per the redesign's design tokens */
+  --bg: #0e0c0d;
+  --text-primary: #f4f4f4;
+  --text-secondary: #a8a8a8;
+  --text-intro: #c4c4c4;
+  --text-tertiary: #888;
+  --text-quaternary: #777;
+  --text-muted: #666;
+  --nav-link: #c4c4c4;
+  --divider: #242424;
+  --border: #333;
+  --border-strong: #444;
+  --accent: oklch(68% 0.16 295);
+  --accent-hover: oklch(76% 0.16 295);
+  --error: #e0645a;
+  --input-bg: #161616;
+
+  /* Type */
+  --font-heading: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-body: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+::selection {
+  background: #333;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────── */
+
+.page-container {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 0;
+}
+
+/* ── Nav ────────────────────────────────────────────────────────── */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  gap: 28px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.nav-logo-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 14px;
+}
+
+.nav-links a {
+  color: var(--nav-link);
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+
+.footer {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--divider);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.footer-links a {
+  color: var(--text-tertiary);
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+/* ── Buttons & chips ────────────────────────────────────────────── */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg);
+  border-color: var(--text-primary);
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+  color: var(--bg);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-tertiary);
+  color: var(--text-primary);
+}
+
+.btn-sm {
+  font-size: 14px;
+  padding: 10px 18px;
+}
+
+.install-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.install-chips-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}
+
+.chip {
+  font-size: 13px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 12px;
+  text-decoration: none;
+}
+
+.chip-disabled {
+  color: #555;
+  border-color: #262626;
+}
+
+/* ── Hero (homepage) ───────────────────────────────────────────── */
+
+.hero {
+  padding: 64px 0 56px;
+}
+
+.wordmark-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.wordmark-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.wordmark-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  max-width: 640px;
+  margin: 0 0 24px;
+}
+
+.hero-subhead {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--text-intro);
+  max-width: 560px;
+  margin: 0 0 32px;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.hero-anchor a {
+  font-size: 15px;
+}
+
+/* ── Sections ───────────────────────────────────────────────────── */
+
+.section {
+  padding: 56px 0;
+}
+
+.section--intro .section-header {
+  margin-bottom: 16px;
+}
+
+.section-header {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 28px;
+  margin: 0 0 32px;
+}
+
+.section-header--sm {
+  font-size: 22px;
+  margin-bottom: 32px;
+}
+
+.section-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+.section-lead-sm {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 0 24px;
+}
+
+.section-link {
+  margin-top: 32px;
+  font-size: 15px;
+}
+
+.section--last {
+  padding-bottom: 72px;
+}
+
+.body-text {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 0 24px;
+}
+
+.body-text:last-child {
+  margin-bottom: 0;
+}
+
+.body-text strong {
+  color: var(--text-primary);
+}
+
+/* ── Numbered lists (use-cases, how-it-works steps) ────────────── */
+
+.numbered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.numbered-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+}
+
+.numbered-index {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 14px;
+  padding-top: 2px;
+}
+
+.numbered-body h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  margin: 0 0 8px;
+}
+
+.numbered-body p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ── Why Horcrux ────────────────────────────────────────────────── */
+
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.why-item h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.why-item p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: 0;
+}
+
+.why-link {
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* ── Closing statement ──────────────────────────────────────────── */
+
+.closing-statement {
+  padding: 72px 0 80px;
+}
+
+.closing-statement p {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.4;
+  max-width: 480px;
+}
+
+/* ── Subpage hero (How it works / About) ───────────────────────── */
+
+.page-hero {
+  padding: 48px 0 40px;
+}
+
+.page-hero--narrow {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 64px 0 100px;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 600px;
+  margin: 0 0 20px;
+}
+
+.page-subhead {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text-intro);
+  max-width: 580px;
+}
+
+.narrow-lead {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+/* ── Legal pages (Terms / Privacy) ─────────────────────────────── */
+
+.legal-page {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.legal-hero {
+  padding: 48px 0 32px;
+}
+
+.legal-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 36px;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+.legal-meta {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-quaternary);
+}
+
+.legal-body {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  padding: 32px 0 0;
+}
+
+.legal-body h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin: 40px 0 12px;
+}
+
+.legal-body h2:first-child {
+  margin-top: 0;
+}
+
+.legal-body p,
+.legal-body ul {
+  margin: 0 0 24px;
+}
+
+.legal-body ul {
+  padding-left: 20px;
+}
+
+.legal-body li {
+  margin-bottom: 8px;
+}
+
+.legal-body li:last-child {
+  margin-bottom: 0;
+}
+
+.legal-body strong {
+  color: var(--text-primary);
+}
+
+.legal-body > .divider {
+  margin: 0 0 24px;
+}
+
+.legal-footnote {
+  font-size: 14px;
+  color: var(--text-quaternary);
+  padding-bottom: 80px;
+}
+
+.legal-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 32px;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--divider);
+  vertical-align: top;
+}
+
+.legal-table th {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.legal-table td {
+  color: var(--text-secondary);
+}
+
+/* ── Interactive recovery diagram ───────────────────────────────── */
+
+.diagram {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.diagram--home {
+  margin-bottom: 48px;
+}
+
+.diagram-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.spoke {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2px;
+  background: var(--border);
+  transform-origin: left center;
+}
+
+.spoke--active {
+  background: var(--text-primary);
+}
+
+.steward {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+}
+
+.steward-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-primary);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.steward-head {
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  transform: translate(-50%, -50%);
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--text-primary);
+}
+
+.steward-shoulders {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 26px;
+  border-radius: 50% 50% 0 0;
+  background: var(--text-primary);
+}
+
+.steward-check {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  color: var(--bg);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  z-index: 2;
+}
+
+.diagram-vault {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diagram-vault-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(1) brightness(1);
+}
+
+.diagram-status {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 20px 0 24px;
+  min-height: 20px;
+}
+
+.diagram-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.diagram-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.diagram-slider-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  width: 78px;
+  flex-shrink: 0;
+}
+
+.diagram-slider {
+  flex: 1;
+  accent-color: var(--text-primary);
+}
+
+.diagram-slider-value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  width: 16px;
+  text-align: right;
+}
+
+.diagram-simulate {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.diagram-simulate .btn {
+  font-family: var(--font-body);
+}
+
+/* ── Contact form ───────────────────────────────────────────────── */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.contact-field {
+  display: block;
+}
+
+.contact-label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.contact-form input[aria-invalid="true"],
+.contact-form textarea[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.contact-field-error {
+  display: block;
+  font-size: 13px;
+  color: var(--error);
+  margin-top: 6px;
+  min-height: 18px;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-message {
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.contact-message--success {
+  background: #1a1a1a;
+  color: var(--text-primary);
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+
+.contact-message--error {
+  color: var(--error);
+}
+
+.contact-submit {
+  align-self: flex-start;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+
+/* ── Legacy pages (static/404.html, static/delete-account/) ──────
+   These two pages are intentionally left as standalone static HTML
+   (out of scope for the redesign) but still load this stylesheet, so
+   the old utility classes they use are kept working here, restyled
+   with the new tokens. Scoped under .container, a class unique to
+   these legacy pages so it can't collide with the new templates. ── */
+
+.container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.container.page-content {
+  max-width: 680px;
+  text-align: left;
+}
+
+.container h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.container h2 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text-primary);
+}
+
+.container .logo {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.container .subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.container .description {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.container .description p {
+  margin-bottom: 1rem;
+}
+
+.container .description p:last-child {
+  margin-bottom: 0;
+}
+
+.container .text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.container .text-secondary {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.container .text-center {
+  text-align: center;
+}
+
+.container .section {
+  margin-bottom: 2rem;
+}
+
+.container .section:last-child {
+  margin-bottom: 0;
+}
+
+.container .button {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--text-primary);
+  background: var(--text-primary);
+  color: var(--bg);
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.container .button:hover,
+.container .button:visited {
+  color: var(--bg);
+  opacity: 0.85;
+}
+
+.container .button--secondary {
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.container .button--secondary:hover,
+.container .button--secondary:visited {
+  color: var(--text-primary);
+  opacity: 1;
+  border-color: var(--text-tertiary);
+}
+
+.container .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--text-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container .state {
+  display: none;
+}
+
+.container .state.active {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .legal-title {
+    font-size: 30px;
+  }
+
+  .closing-statement p {
+    font-size: 22px;
+  }
+
+  .section-header {
+    font-size: 24px;
+  }
+
+  .numbered-item {
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+  }
+}
