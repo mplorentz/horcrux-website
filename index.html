@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Horcrux - Secure backup and recovery of sensitive data using Shamir's Secret Sharing">
-    <title>Horcrux - Coming Soon</title>
+    <title>Horcrux Backup</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,19 +21,88 @@
 
 <body>
     <div class="container">
-        <div class="logo" role="img" aria-label="Horcrux logo">🔐</div>
+        <img class="app-icon" src="assets/app-icon.png" alt="Horcrux icon" width="120" height="120">
         <h1>Horcrux Backup</h1>
-        <p class="subtitle">Coming Soon</p>
         <div class="description">
-            <p>Horcrux is an app for backup and recovery of sensitive data like digital wills, passwords, and
-                cryptographic keys.</p>
-            <p>It's currently in development, with an open beta expected in May 2026. You can follow the
-                development <a href="https://github.com/mplorentz/horcrux">on GitHub</a>.</p>
+            <p class="lead-line">Store secrets with friends and family.</p>
+            <p>Horcrux uses Shamir's Secret Sharing to split your most sensitive data - passwords, cryptographic keys, digital wills - into encrypted fragments distributed to people you choose. No single person holds the key. No cloud stores your data. But when you need to recover it, your stewards can put the pieces back together.</p>
+            <p class="tech-line"><a href="https://github.com/mplorentz/horcrux" rel="noopener">Free and open source.</a> Horcrux is generously funded by <a href="https://opensats.org" rel="noopener">OpenSats.org</a></p>
+            <p><a href="/how-it-works/">How Horcrux Works →</a></p>
         </div>
+<hr class="divider">
+
+        <div class="beta-section">
+            <a class="button" href="https://testflight.apple.com/join/DG5kJpvu" rel="noopener">Join the Beta — iOS</a>
+            <a class="button" href="https://play.google.com/apps/testing/com.singleoriginsoftware.horcrux" rel="noopener">Join the Beta — Google Play</a>
+            <a class="button button--secondary" href="https://github.com/mplorentz/horcrux/releases" rel="noopener">Download APK — Android</a>
+        </div>
+
+        <hr class="divider">
+
+        <section class="signup-section" aria-labelledby="signup-heading">
+            <h2 id="signup-heading" class="signup-heading">Get notified</h2>
+            <p class="signup-description">Sign up for our mailing list to get notified when Horcrux launches publicly.</p>
+
+            <div class="contact-message contact-message--success" data-fs-success hidden></div>
+            <div class="contact-message contact-message--error" data-fs-error hidden></div>
+
+            <form
+                id="signup-form"
+                class="signup-form contact-form"
+                action="https://formspree.io/f/xaqgreve"
+                method="POST"
+            >
+                <input type="hidden" name="_subject" value="Horcrux email list signup" />
+                <input
+                    type="text"
+                    name="_gotcha"
+                    class="contact-honeypot"
+                    tabindex="-1"
+                    autocomplete="off"
+                    aria-hidden="true"
+                />
+
+                <div class="signup-fields">
+                    <label class="contact-field signup-field">
+                        <span class="visually-hidden">Email</span>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            autocomplete="email"
+                            placeholder="you@example.com"
+                            data-fs-field
+                        />
+                        <span class="contact-field-error" data-fs-error="email"></span>
+                    </label>
+
+                    <button type="submit" class="button signup-submit" data-fs-submit-btn>
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+        </section>
+
         <div class="footer-links" style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-secondary);">
             <a href="/delete-account/" style="color: var(--text-secondary); text-decoration: underline;">Delete Account</a>
+            &nbsp;&middot;&nbsp;
+            <a href="/tos/" style="color: var(--text-secondary); text-decoration: underline;">Terms</a>
+            &nbsp;&middot;&nbsp;
+            <a href="/privacy-policy/" style="color: var(--text-secondary); text-decoration: underline;">Privacy</a>
         </div>
     </div>
+    <script>
+        window.formspree =
+            window.formspree ||
+            function () {
+                (formspree.q = formspree.q || []).push(arguments);
+            };
+        formspree("initForm", {
+            formElement: "#signup-form",
+            formId: "xaqgreve",
+        });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 
 </html>
