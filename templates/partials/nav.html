@@ -1,0 +1,13 @@
+<nav class="nav">
+  {% if current_path != "/" %}
+  <a href="/" class="nav-logo">
+    <img src="/assets/app-icon.png" alt="Horcrux" class="nav-logo-icon">
+    <span class="nav-logo-text">Horcrux</span>
+  </a>
+  {% endif %}
+  <ul class="nav-links">
+    {% if current_path != "/how-it-works/" %}<li><a href="/how-it-works/">How it works</a></li>{% endif %}
+    {% if current_path != "/about/" %}<li><a href="/about/">About</a></li>{% endif %}
+    {% if current_path != "/tos/" and current_path != "/privacy-policy/" %}<li><a href="https://github.com/mplorentz/horcrux" target="_blank" rel="noopener">GitHub</a></li>{% endif %}
+  </ul>
+</nav>
