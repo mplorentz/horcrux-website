@@ -52,18 +52,32 @@ bd close <id>         # Complete work
 
 ## Build & Test
 
-_Add your build and test commands here_
-
 ```bash
-# Example:
-# npm install
-# npm test
+zola serve   # live-reloading dev server at http://127.0.0.1:1111
+zola build   # outputs the static site to public/ (gitignored, never commit it)
 ```
+
+No test suite; `zola build` succeeding is the main correctness check, plus visually
+checking pages that changed.
 
 ## Architecture Overview
 
-_Add a brief overview of your project architecture_
+A [Zola](https://www.getzola.org/) static site (Tera templates, plain CSS, no
+npm/node). `content/*.md` are front-matter-only — page copy lives in `templates/`, not
+Markdown bodies. `templates/partials/nav.html`/`footer.html` vary per page using Zola's
+`current_path`. `static/` is copied verbatim into the build, including two standalone
+pre-Zola pages (`404.html`, `delete-account/`) kept intentionally as plain HTML.
+
+Deploys via `.github/workflows/deploy.yml` on push to `main` (GitHub Pages, source set
+to "GitHub Actions" — not branch-based deploy, or the site 404s since `main`'s repo root
+has no `index.html`). See README.md for the full local-dev/deploy writeup.
 
 ## Conventions & Patterns
 
-_Add your project-specific conventions here_
+- Don't hardcode page copy in `content/*.md`; it goes in the matching `templates/*.html`.
+- `static/styles.css` has a compatibility block (search `.container`) that keeps
+  `static/404.html` and `static/delete-account/`'s old class names styled. Don't remove
+  it without restyling those two pages.
+- The interactive recovery diagram is vanilla JS (`static/js/key-diagram.js`), no
+  framework. Contact forms post to Formspree directly from the browser; there's no
+  backend here.

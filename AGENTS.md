@@ -82,3 +82,28 @@ bd close <id>         # Complete work
 - NEVER say "ready to push when you are" - YOU must push
 - If push fails, resolve and retry until it succeeds
 <!-- END BEADS INTEGRATION -->
+
+## This is a Zola site
+
+Local dev: `zola serve`. Build: `zola build` (output in `public/`, gitignored — never
+commit it). See README.md for the full picture; the load-bearing facts:
+
+- **GitHub Pages source must stay "GitHub Actions."** `main`'s repo root has no
+  `index.html` — the site only exists after `zola build`. If Pages is ever reset to
+  branch-based deploy, horcruxbackup.com 404s (this happened once; see
+  `.github/workflows/deploy.yml`, which is the thing that must run on every push to main).
+- `content/*.md` are front-matter-only (`template = "..."`); page copy lives in
+  `templates/`, not Markdown bodies.
+- `templates/partials/nav.html` and `partials/footer.html` branch on Zola's built-in
+  `current_path` variable to vary links per page — there's no per-template "set a
+  page_key" variable (Tera doesn't allow `{% set %}` before `{% extends %}`).
+- `static/404.html` and `static/delete-account/` are standalone pre-Zola pages, kept
+  as-is on purpose. They still load `/styles.css`, so `static/styles.css` carries a
+  small compatibility block (search `.container` near the bottom) that keeps their old
+  class names (`.button`, `.spinner`, `.state`, etc.) styled. Don't delete that block
+  without restyling those two pages first.
+- The interactive recovery diagram (homepage + how-it-works) is vanilla JS in
+  `static/js/key-diagram.js`, mounted on any `[data-key-diagram]` element via the
+  `templates/partials/key-diagram.html` partial. No build step, no framework.
+- Contact forms post to Formspree directly from the browser (see `how-it-works.html`);
+  there's no backend in this repo.
