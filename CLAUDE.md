@@ -50,34 +50,11 @@ bd close <id>         # Complete work
 <!-- END BEADS INTEGRATION -->
 
 
-## Build & Test
+## Build, architecture, and conventions
 
-```bash
-zola serve   # live-reloading dev server at http://127.0.0.1:1111
-zola build   # outputs the static site to public/ (gitignored, never commit it)
-```
+@AGENTS.md
 
-No test suite; `zola build` succeeding is the main correctness check, plus visually
-checking pages that changed.
-
-## Architecture Overview
-
-A [Zola](https://www.getzola.org/) static site (Tera templates, plain CSS, no
-npm/node). `content/*.md` are front-matter-only — page copy lives in `templates/`, not
-Markdown bodies. `templates/partials/nav.html`/`footer.html` vary per page using Zola's
-`current_path`. `static/` is copied verbatim into the build, including two standalone
-pre-Zola pages (`404.html`, `delete-account/`) kept intentionally as plain HTML.
-
-Deploys via `.github/workflows/deploy.yml` on push to `main` (GitHub Pages, source set
-to "GitHub Actions" — not branch-based deploy, or the site 404s since `main`'s repo root
-has no `index.html`). See README.md for the full local-dev/deploy writeup.
-
-## Conventions & Patterns
-
-- Don't hardcode page copy in `content/*.md`; it goes in the matching `templates/*.html`.
-- `static/styles.css` has a compatibility block (search `.container`) that keeps
-  `static/404.html` and `static/delete-account/`'s old class names styled. Don't remove
-  it without restyling those two pages.
-- The interactive recovery diagram is vanilla JS (`static/js/key-diagram.js`), no
-  framework. Contact forms post to Formspree directly from the browser; there's no
-  backend here.
+Claude Code doesn't read AGENTS.md automatically the way it does this file, so this
+import keeps the two from drifting apart — AGENTS.md is the source of truth for build
+commands, architecture, and repo conventions; add Claude-specific instructions (if any
+are ever needed) below this line instead of duplicating AGENTS.md's content here.
