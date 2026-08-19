@@ -274,8 +274,25 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 14px;
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.store-badge:hover {
+  opacity: 0.8;
+}
+
+.store-badge img {
+  display: block;
+  height: 40px;
+  width: auto;
 }
 
 .hero-anchor a {
