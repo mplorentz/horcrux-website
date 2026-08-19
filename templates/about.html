@@ -4,8 +4,58 @@
 {% block description %}About Horcrux and Matt Lorentz{% endblock description %}
 
 {% block content %}
-<section class="page-hero page-hero--narrow">
+<section class="page-hero">
   <h1 class="legal-title">About</h1>
-  <p class="narrow-lead">This page is coming soon. In the meantime, you can read about Horcrux on <a href="https://github.com/mplorentz/horcrux" target="_blank" rel="noopener">GitHub</a>.</p>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <p class="body-text">Horcrux was created by <strong>Matt Lorentz</strong> in <strong>2025</strong> with support from an <strong><a href="https://opensats.org" target="_blank" rel="noopener">OpenSats</a></strong> grant. It is free and open source software, MIT licensed.</p>
+
+  <p class="body-text">The idea for Horcrux was inspired by a scene in the 1982 film <em>The Dark Crystal</em>, in which the Skeksis pour their essence into a vessel outside of themselves. Today our secrets — keys, passwords, recovery phrases — live in the cloud or nowhere at all. We wanted a different way: store your most sensitive data encrypted and sharded across devices held by people you trust, so losing one device doesn't mean losing the secret, and no single steward can act alone.</p>
+</section>
+
+<hr class="divider">
+
+<section class="section">
+  <p class="body-text">Horcrux is a <strong>convivial tool</strong> — it exists to empower its users rather than to extract from them. There is no server-side master key, no subscription, no data-mining, no growth target. The app connects peers directly over the Nostr protocol using open relays that anyone can run. The cryptography (secp256k1, ChaCha20, Shamir's Secret Sharing) is standard, well-studied, and implemented in the open. Horcrux is designed to be durable: the underlying technology is stable and boring on purpose, so the app keeps working long after any one company would have shut it down.</p>
+</section>
+
+<hr class="divider">
+
+<section class="section section--last">
+  <h2 class="section-header section-header--sm">Get involved</h2>
+  <p class="section-lead-sm">Have feedback, ideas, or want to contribute? We'd love to hear from you.</p>
+
+  <div class="contact-message contact-message--success" data-fs-success hidden></div>
+  <div class="contact-message contact-message--error" data-fs-error hidden></div>
+
+  <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgoqebnn" method="POST">
+    <input type="hidden" name="_subject" value="Horcrux website feedback">
+    <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <label class="contact-field">
+      <span class="contact-label">Email</span>
+      <input type="email" name="email" required autocomplete="email" data-fs-field>
+      <span class="contact-field-error" data-fs-error="email"></span>
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">Message</span>
+      <textarea name="message" rows="4" required data-fs-field></textarea>
+      <span class="contact-field-error" data-fs-error="message"></span>
+    </label>
+
+    <button type="submit" class="btn btn-primary contact-submit" data-fs-submit-btn>Send</button>
+  </form>
 </section>
 {% endblock content %}
+
+{% block scripts %}
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'mgoqebnn' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+{% endblock scripts %}
