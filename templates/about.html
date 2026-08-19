@@ -4,8 +4,53 @@
 {% block description %}About Horcrux and Matt Lorentz{% endblock description %}
 
 {% block content %}
-<section class="page-hero page-hero--narrow">
-  <h1 class="legal-title">About</h1>
-  <p class="narrow-lead">This page is coming soon. In the meantime, you can read about Horcrux on <a href="https://github.com/mplorentz/horcrux" target="_blank" rel="noopener">GitHub</a>.</p>
+
+<section class="page-hero">
+  <h1 class="page-title">About</h1>
 </section>
+
+<hr class="divider">
+
+<section class="section">
+  <p class="body-text">Horcrux was started by <a href="https://mattlorentz.com">Matt Lorentz</a> in 2025 supported by a small group of friends and a generous grant from <a href="https://opensats.org">OpenSats.org</a>. Matt was initially inspired by the <a href="https://darkcrystal.pw/">Dark Crystal project</a> and their tool for backing up identity keys on the Secure Scuttlebutt network. For years he dreamed with friends about a way to mutually share server passwords in order to wind things down gracefully if the worst should happen.</p>
+  <p class="body-text">Horcrux is designed to be a convivial tool: free to use, open source, part of commons of the open web, made to outlast the makers. If you would like to contribute with constructive feedback, encouragement, code, money, or your own skills, please do get in touch via our contact form.</p>
+</section>
+
+<hr class="divider">
+
+<section id="contact-form" class="section section--last">
+  <h2 class="section-header section-header--sm">Get involved</h2>
+  <p class="section-lead-sm">Send us a message below.</p>
+
+  <div class="contact-message contact-message--success" data-fs-success hidden></div>
+  <div class="contact-message contact-message--error" data-fs-error hidden></div>
+
+  <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgoqebnn" method="POST">
+    <input type="hidden" name="_subject" value="Horcrux website feedback">
+    <input type="text" name="_gotcha" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <label class="contact-field">
+      <span class="contact-label">Email</span>
+      <input type="email" name="email" required autocomplete="email" data-fs-field>
+      <span class="contact-field-error" data-fs-error="email"></span>
+    </label>
+
+    <label class="contact-field">
+      <span class="contact-label">Message</span>
+      <textarea name="message" rows="4" required data-fs-field></textarea>
+      <span class="contact-field-error" data-fs-error="message"></span>
+    </label>
+
+    <button type="submit" class="btn btn-primary contact-submit" data-fs-submit-btn>Send</button>
+  </form>
+</section>
+
 {% endblock content %}
+
+{% block scripts %}
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'mgoqebnn' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+{% endblock scripts %}
