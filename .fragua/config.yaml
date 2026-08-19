@@ -1,0 +1,11 @@
+# fragua project config — project-specific knobs only.
+# Generic preferences live in ~/.fragua/config.yaml.
+
+# Stable project identity. Committed so every clone shares it and runs
+# stay attributable across machines — do not change it.
+id: 01a01a5f-32b4-7cd6-bd55-b85f2e65a3b1
+name: horcrux-website
+tier: owned
+
+# Uncomment if the project needs a per-worktree bootstrap command:
+# bootstrap: "bun install --frozen-lockfile"

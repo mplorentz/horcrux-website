@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# script/checks — quality gate for horcrux-website
+set -euo pipefail
+
+echo "=== Zola check (build + link validation) ==="
+zola check
+echo "=== Done ==="

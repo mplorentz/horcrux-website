@@ -6,3 +6,14 @@
 
 # Zola build output
 public/
+
+# fragua runtime — never commit these
+.fragua/runs/
+.fragua/worktrees/
+.fragua/blobs/
+.fragua/fragua.db*
+.fragua/daemon/
+
+# fragua — always commit these (negative patterns for clarity)
+!.fragua/config.yaml
+!.fragua/workflows/
