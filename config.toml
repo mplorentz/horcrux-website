@@ -6,3 +6,7 @@ generate_feeds = false
 
 [extra]
 author = "Matt Lorentz"
+# PostHog project API key for web analytics. Set to your PostHog project key
+# (from https://us.posthog.com) to enable analytics on the live site.
+# Leave empty or unset to disable (e.g. in local dev).
+posthog_api_key = "phc_myP3fePJjNsvb32BPTu6SmMpEwU7JW2uQdF3gns8KFKE"
