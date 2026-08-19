@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="240" height="80" rx="12" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+  <!-- Lightning bolt icon -->
+  <g transform="translate(22, 16)">
+    <path d="M14 0L4 22h8l-2 18 14-22h-8l2-18h-8z" fill="#FBBC04"/>
+  </g>
+  <!-- Text -->
+  <text x="62" y="30" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#a8a8a8">Available on</text>
+  <text x="62" y="48" font-family="Helvetica, Arial, sans-serif" font-weight="bold" font-size="17" fill="#fff">Zapstore</text>
+</svg>
