@@ -677,6 +677,9 @@ section.section {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+  border-radius: 50%;
+  background: var(--bg);
 }
 
 .diagram-vault-icon {
