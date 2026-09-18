@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body_class %}page--docs{% endblock body_class %}
+
+{% block title %}Documentation — Horcrux{% endblock title %}
+{% block description %}Horcrux documentation — setup guides, architecture, and reference{% endblock description %}
+
+{% block content %}
+<div class="docs-layout">
+  <aside class="docs-sidebar">
+    <nav class="docs-nav">
+      <h3 class="docs-nav-title"><a href="/docs/">Documentation</a></h3>
+      <ul class="docs-nav-list">
+      {% for page in section.pages %}
+        <li>
+          <a href="{{ page.permalink }}" class="docs-nav-link{% if current_url == page.permalink %} docs-nav-link--active{% endif %}">
+            {{ page.title }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+  <div class="docs-content">
+    <section class="page-hero page-hero--narrow">
+      <h1 class="page-title">{{ section.title }}</h1>
+      {% if section.content %}
+        <p class="page-subhead">{{ section.content | safe }}</p>
+      {% endif %}
+    </section>
+
+    {% if section.pages %}
+    <hr class="divider">
+
+    <section class="section section--last">
+      <h2 class="section-header">Pages</h2>
+      <ul class="docs-page-list">
+      {% for page in section.pages %}
+        <li>
+          <a href="{{ page.permalink }}" class="docs-page-item">
+            <span class="docs-page-item-title">{{ page.title }}</span>
+            {% if page.description %}
+              <span class="docs-page-item-desc">{{ page.description }}</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}
