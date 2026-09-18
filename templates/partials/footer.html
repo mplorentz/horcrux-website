@@ -2,7 +2,7 @@
   <ul class="footer-links">
     {% if current_path != "/" %}<li><a href="/">Home</a></li>{% endif %}
     {% if current_path != "/how-it-works/" %}<li><a href="/how-it-works/">How it works</a></li>{% endif %}
-    {% if not current_path is starting_with("/docs/") and current_path != "/docs/" %}<li><a href="/docs/">Docs</a></li>{% endif %}
+    {% if current_path != "/docs/" and not current_path is starting_with(pat="/docs/") %}<li><a href="/docs/">Docs</a></li>{% endif %}
     {% if current_path != "/about/" %}<li><a href="/about/">About</a></li>{% endif %}
     <li><a href="https://github.com/mplorentz/horcrux" target="_blank" rel="noopener">GitHub</a></li>
     {% if current_path == "/" or current_path == "/how-it-works/" %}<li><a href="/delete-account/">Delete account</a></li>{% endif %}
