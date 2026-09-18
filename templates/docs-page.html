@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — Horcrux{% endblock title %}
+{% block description %}{{ page.description }}{% endblock description %}
+
+{% block content %}
+<div class="docs-layout">
+  <aside class="docs-sidebar">
+    {% set docs_section = get_section(path="docs/_index.md") %}
+    <nav class="docs-nav">
+      <h3 class="docs-nav-title"><a href="/docs/">Documentation</a></h3>
+      <ul class="docs-nav-list">
+      {% for p in docs_section.pages %}
+        <li>
+          <a href="{{ p.permalink }}" class="docs-nav-link{% if current_url == p.permalink %} docs-nav-link--active{% endif %}">
+            {{ p.title }}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+  <div class="docs-content">
+    <section class="page-hero page-hero--narrow">
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if page.description %}
+        <p class="page-subhead">{{ page.description }}</p>
+      {% endif %}
+    </section>
+
+    <hr class="divider">
+
+    <section class="section section--last">
+      <div class="docs-body">
+        {{ page.content | safe }}
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock content %}
