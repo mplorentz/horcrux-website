@@ -6,6 +6,7 @@
   </a>
   {% endif %}
   <ul class="nav-links">
+    {% if current_path is starting_with(pat="/docs/") %}<li><a href="/">Home</a></li>{% endif %}
     {% if current_path != "/how-it-works/" %}<li><a href="/how-it-works/">How it works</a></li>{% endif %}
     {% if current_path != "/docs/" and not current_path is starting_with(pat="/docs/") %}<li><a href="/docs/">Docs</a></li>{% endif %}
     {% if current_path != "/about/" %}<li><a href="/about/">About</a></li>{% endif %}

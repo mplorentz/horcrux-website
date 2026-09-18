@@ -5,24 +5,30 @@ template = "docs-page.html"
 weight = 1
 +++
 
-Get Horcrux running on your device and make your first backup in just a few minutes.
-
----
-
 ## Install Horcrux
 
 Horcrux is available on iOS, Android, and desktop Linux. Grab the version that works for you:
 
-- **iOS** — [Download on the App Store](https://apps.apple.com/us/app/horcrux-backup/id6756125172)
-- **Android** — [Get it on Google Play](https://play.google.com/store/apps/details?id=com.singleoriginsoftware.horcrux)
-- **Desktop (Linux)** — [Download from Zapstore](https://zapstore.dev/apps/com.singleoriginsoftware.horcrux) or grab the latest release from [GitHub](https://github.com/mplorentz/horcrux/releases)
-- **Build from source** — Clone [the repo](https://github.com/mplorentz/horcrux), open it in Xcode or Android Studio, and run.
+<div class="hero-cta">
+  <a href="https://apps.apple.com/us/app/horcrux-backup/id6756125172" target="_blank" rel="noopener" class="store-badge">
+    <img src="/assets/badges/app-store.svg" alt="Download on the App Store" width="120" height="40">
+  </a>
+  <a href="https://play.google.com/store/apps/details?id=com.singleoriginsoftware.horcrux&amp;hl=en-US" target="_blank" rel="noopener" class="store-badge">
+    <img src="/assets/badges/google-play.png" alt="Get it on Google Play" width="134" height="40">
+  </a>
+  <a href="https://zapstore.dev/apps/com.singleoriginsoftware.horcrux" target="_blank" rel="noopener" class="store-badge">
+    <img src="/assets/badges/zapstore.svg" alt="Get it on Zapstore" width="131" height="40">
+  </a>
+  <a href="https://github.com/mplorentz/horcrux/releases" target="_blank" rel="noopener" class="store-badge">
+    <img src="/assets/badges/github.png" alt="Get it on GitHub" width="134" height="40">
+  </a>
+</div>
 
 ---
 
 ## Create an account
 
-Horcrux uses the Nostr protocol instead of traditional email-and-password accounts. When you launch the app for the first time, it generates a cryptographic key pair that lives only on your device. This key is your identity — no one else, including the Horcrux developers, ever sees it.
+Horcrux uses the [Nostr protocol](https://nostr.org) instead of traditional email-and-password accounts. When you launch the app for the first time, it generates a cryptographic key pair that lives only on your device. This key is your identity — no one else, including the Horcrux developers, ever sees it.
 
 1. Open Horcrux.
 2. Your Nostr key is generated automatically. The app will show your public key (a string starting with `npub1...`).

@@ -833,6 +833,15 @@ section.section {
   align-items: flex-start;
 }
 
+.page--docs .page-container {
+  max-width: none;
+}
+
+.page--docs .docs-layout {
+  margin: 0;
+  padding: 0;
+}
+
 .docs-sidebar {
   flex: 0 0 200px;
   position: sticky;

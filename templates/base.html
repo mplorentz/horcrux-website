@@ -25,7 +25,7 @@
   </script>
 {% endif %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock body_class %}">
   {% include "partials/nav.html" %}
 
   <main class="page-container">
